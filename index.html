@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Form With JS Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation-float.min.css"
+        integrity="sha256-sP0p6J7SbJGiJ2gkdY1nkVsLgdwiFN2kI370lU+zacQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="callout text-center" id="form">
+            <h2>Contact Us</h2>
+            <div class="floated-label-wrapper">
+                <label for="full-name">Full name</label>
+                <input type="text" id="full-name" name="full name input" placeholder="Full name">
+            </div>
+            <div class="floated-label-wrapper">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email input" placeholder="Email">
+            </div>
+            <div class="floated-label-wrapper">
+                <label for="pass">Message</label>
+                <textarea name="" id="message" cols="30" rows="5"></textarea>
+            </div>
+            <div id="loaders">
+                <img id="sending" src="img/sending.gif" alt="">
+            </div>
+            <input id="sendBtn" class="button expanded" type="submit" value="Send Message">
+        </form>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/foundation.min.js"
+        integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            var showClass = 'show';
+
+            $('input').on('checkval', function () {
+                var label = $(this).prev('label');
+                if (this.value !== '') {
+                    label.addClass(showClass);
+                } else {
+                    label.removeClass(showClass);
+                }
+            }).on('keyup', function () {
+                $(this).trigger('checkval');
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
